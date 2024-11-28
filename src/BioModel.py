@@ -1,8 +1,5 @@
 import optuna
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, roc_auc_score, precision_score, recall_score, f1_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
@@ -22,7 +19,7 @@ class BioModel:
         self.classifier = None
         self.best_params = None
         self.df_positives = pd.read_csv(f'./datasets/processed/k{self.k}/df_positives_kmer.csv')
-        self.df_negatives = pd.read_csv(f'./datasets/processed/k{self.k}/df_negatives_kmer.csv') if negative_type == 'auto' else pd.read_csv(f'./datasets/processed/k{self.k}/df_negatives_random.csv')
+        self.df_negatives = pd.read_csv(f'./datasets/processed/k{self.k}/df_negatives_kmer.csv') if negative_type == 'auto' else pd.read_csv(f'./datasets/processed/k{self.k}/df_negatives_random_kmer.csv')
         self.seed = seed
         self.negative_type = negative_type
 
